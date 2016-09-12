@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="author" content="ganzwen@gmail.com" />
+	<meta name="keyword" content="page,pagination" />
+	<title>Pagination</title>
+	<link rel="stylesheet" href="css/pagination.css">
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+	<style>
+		* {
+			/*border: 0;*/
+			margin: 0;
+			padding: 0;
+		}
+		.data-list {
+			list-style: none;
+		}
+		.list-item {
+			padding: 10px;
+		}
+		table{
+			border: 1px solid black;
+			margin: auto;
+		}
+		td{
+			padding: 0;
+			width: 100px;
+			border: 1px solid black;
+			text-align: center;
+		}
+		.header{
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body>
+	<div style="width: 700px;margin: 100px auto;">
+		<div id="grid"></div>
+		<div id="pager" class="pagination"></div>
+	</div>
+	<!-- <script src="js/data.js"></script> -->
+	<script src="pager.js"></script>
+	<script src="index.js"></script>
+	<!-- <script src="js/index.js"></script> -->
+</body>
+</html>
