@@ -122,7 +122,6 @@ function data(options){
 	index=$('.cur:first').attr("data-index");
 	len=options.len;
     url=options.url;
-    alert(index+","+len);
     curData='[["Bob","man","12"],["Lisa","woman","14"],["Tina","woman","22"],["Lisa","woman","14"],["Tina","woman","22"]]';
     $(document).trigger("dataDone");
 }
