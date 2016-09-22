@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+			border: 0;
+		}
+		.basic{
+			margin: auto;
+			height: 430px;
+			width: 500px;
+		}
+		.big-pic{
+			margin: auto;
+			height: 350px;
+			width: 500px;
+		}
+		#big-img{
+			display: block;;
+			height: 350px;
+			width: 500px;
+		}
+		.menu{
+			margin-top: 5px;
+			height: 75px;
+			width: 500px;
+		}
+		.button-div{
+			float: left;
+		}
+		input{
+			height: 75px;
+			width: 50px;
+			color: gray;
+			font-size: 20px;
+		}
+		.choose-pic{
+			float: left;
+			margin-left: 25px;
+			/*margin-right: 10px;*/
+			width: 375px;
+			height: 75px;
+			overflow: hidden;
+		}
+		#small-pic{
+			margin-left: 0px;
+		}
+		.small{
+			margin-right: 25px;
+			float: left;
+		}
+		.small-img{
+			height: 75px;
+			width: 100px;
+		}
+	</style>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+	
+</head>
+<body>
+	<div class="basic">
+	<div class="big-pic">
+		<img src="bigPic/Chrysanthemum.jpg" id="big-img" />
+	</div>
+	<div class="menu">
+		<div class="button-div">
+			<input type="button" value="<" id="left" />
+		</div>
+		<div class="choose-pic">
+			<div id="small-pic">
+				<div class="small">
+					<img src="bigPic/Chrysanthemum.jpg" class="small-img" />
+				</div>
+				<div class="small">
+					<img src="bigPic/Desert.jpg" class="small-img" />
+				</div>
+				<div class="small">
+					<img src="bigPic/Hydrangeas.jpg" class="small-img" />
+				</div>
+				<div class="small">
+					<img src="bigPic/Jellyfish.jpg" class="small-img" />
+				</div>
+				<div class="small">
+					<img src="bigPic/Koala.jpg" class="small-img" />
+				</div>
+				<div class="small">
+					<img src="bigPic/Lighthouse.jpg" class="small-img" />
+				</div>
+			</div>
+		</div>
+		<div class="button-div">
+			<input type="button" value=">" id="right" />
+		</div>
+	</div>
+</div>
+<script>
+		var m=6,n=3;
+		$(".small-img").each(function(){
+			$(this).click(function(){
+				$("#big-img").attr("src",$(this).attr("src"));
+			});
+		});
+		var args=$(".small-img");
+		for(var i=0;i<args.length;i++){
+			$(args[i]).click(function(){
+				$("#big-img").fadeOut(0,function(){
+					$(this).attr("src",$(args[i]).attr("src"));
+					$(this).fadeIn("slow");
+				});
+				//$("#big-img").attr("src",$(args[i]).attr("src"));
+			});
+		}
+		var leftNum=0,rightNum=3;
+			if(leftNum==3){
+				$("#left").attr("disabled","disabled");
+			}
+			if(rightNum==3){
+				$("#right").attr("disabled","disabled");
+			}
+			$("#left").click(function(){
+				var marginL=parseInt($("#small-pic").css("marginLeft"));
+				//alert(marginL);
+				marginL-=125;
+				//alert(marginL);
+				marginL+="px";
+				//alert(marginL);
+				$("#small-pic").animate({marginLeft:marginL});
+				//$("#small-pic").css("margin-left",marginL);
+				leftNum++;
+				rightNum--;
+				if(leftNum==3){
+					$("#left").attr("disabled","disabled");
+				}else{
+					$("#left").removeAttr("disabled");
+				}
+				if(rightNum==3){
+					$("#right").attr("disabled","disabled");
+				}else{
+					$("#right").removeAttr("disabled");
+				}
+			});
+			$("#right").click(function(){
+				var marginL=parseInt($("#small-pic").css("marginLeft"));
+				marginL+=125;
+				marginL+="px";
+				$("#small-pic").animate({marginLeft:marginL});
+				//$("#small-pic").css("margin-left",marginL);
+				leftNum--;
+				rightNum++;
+				if(leftNum==3){
+					$("#left").attr("disabled","disabled");
+				}else{
+					$("#left").removeAttr("disabled");
+				}
+				if(rightNum==3){
+					$("#right").attr("disabled","disabled");
+				}else{
+					$("#right").removeAttr("disabled");
+				}
+			});
+	</script>
+</body>
+</html>
