@@ -1,9 +1,10 @@
 //被pager触发data改变
 $(document).on("pagerDone",function(){
-    new data({
+    myData=new data({
         len:5,
         url:"test.php"
     });
+    $(document).trigger("dataDone");
 });
 /*$(document).on("pagerDone",dataOn);
 function dataOn(){
@@ -13,15 +14,13 @@ function dataOn(){
 }*/
 //被data触发grid改变
 $(document).on("dataDone",function(){
-    new grid({
+    myGrid=new grid({
         render:'grid',
-        myData:curData,
+        mydata:myData.curData,
         colsName:new Array('name','sex','age')
     });
 });
 //分页初始化
-new pager({
-    cur:1,
-    total:20,
-    render:'pager'
-});
+var myPager={};
+myPager= new pager({cur:1,total:20,render:'pager'});
+myPager.action();
