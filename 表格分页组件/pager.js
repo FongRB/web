@@ -134,21 +134,24 @@ function grid(options){
     this.cols=options.colsName.length;
     this.colsName=options.colsName;
     this.mydata=$.parseJSON(options.mydata);
-    //绘制表格
-    var html="<table><tbody><tr>";
-    for(var i=0;i<this.cols;i++){
-        html+='<td class="header">'+this.colsName[i]+'</td>';
-    }
-    html+='</tr>';
-    for(var i=0;i<this.mydata.length;i++){
-        html+='<tr>';
-        for(var j=0;j<this.cols;j++){
-            html+='<td>'+this.mydata[i][j]+'</td>';
+    this.action=function(){
+        //绘制表格
+            var html="<table><tbody><tr>";
+        for(var i=0;i<this.cols;i++){
+            html+='<td class="header">'+this.colsName[i]+'</td>';
         }
         html+='</tr>';
+        for(var i=0;i<this.mydata.length;i++){
+            html+='<tr>';
+            for(var j=0;j<this.cols;j++){
+                html+='<td>'+this.mydata[i][j]+'</td>';
+            }
+            html+='</tr>';
+        }
+        html+='</tbody></table>';
+        $(this.render).html(html);
     }
-    html+='</tbody></table>';
-    $(this.render).html(html);
+    
 }
 
 

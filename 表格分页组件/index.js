@@ -19,6 +19,7 @@ $(document).on("dataDone",function(){
         mydata:myData.curData,
         colsName:new Array('name','sex','age')
     });
+    myGrid.action();
 });
 //分页初始化
 var myPager={};
