@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>scroll-DIY</title>
+	<style type="text/css">
+		#base{
+			display: block;
+			height: 100px;
+			width: 300px;
+			margin: auto;
+			overflow-y: scroll;
+			border:none;
+			resize: none;
+			font-size: 30px;
+		}
+		#base:focus{
+			outline: none;
+		}
+		#base::-webkit-scrollbar {
+		    width: 30px;
+		}
+		#base::-webkit-scrollbar-button{
+			display: none;
+		}
+		#base::-webkit-scrollbar-track{
+			background: url(images/track.png) no-repeat center center;
+		}
+		#base::-webkit-scrollbar-thumb{
+			background: url(images/cat.png) no-repeat center center;
+		}
+		#base::-webkit-scrollbar-corner{
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<textarea id="base">Hei! Look at my scroll! There is a cat!
+	Do you like it?
+	</textarea>
+</body>
+</html>

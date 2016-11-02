@@ -1,0 +1,13 @@
+1.webkit滚动条伪元素:
+::-webkit-scrollbar        滚动条整体部分，其中的属性有width,height,background,border（就和一个块级元素一样）等。
+::-webkit-scrollbar-button      滚动条两端的按钮。可以用display:none让其不显示，也可以添加背景图片，颜色改变显示效果。
+::-webkit-scrollbar-track         外层轨道。可以用display:none让其不显示，也可以添加背景图片，颜色改变显示效果。
+::-webkit-scrollbar-track-piece        内层轨道，滚动条中间部分（除去）。
+::-webkit-scrollbar-thumb               滚动条里面可以拖动的那部分
+::-webkit-scrollbar-corner               边角
+::-webkit-resizer                       定义右下角拖动块的样式
+
+2.处理素材：（1）track若想是细条款式，则用background设置背景图片，设置左右居中、no-repeat、上下置顶（最好保证素材长度足够）；
+            （2）thumb为png。我已白底jpg图片为素材，解锁图层，用磁性套索工具选中需要的图案，然后反选，按delete键删除背景，保存为web所用格式，png。css设置为no-repeat、左右居中、上下居中；
+	    （3）button设置display为none；
+3.学习资料：http://www.lyblog.net/detail/314.html

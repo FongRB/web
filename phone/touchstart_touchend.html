@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		div{
+			width:200px;
+			height: 200px;
+		}
+		.outer{
+			position: relative;
+			overflow: hidden;
+		}
+		.inner{
+			position: absolute;
+			top: 0;
+			left:0;
+		}
+		.red{
+			background-color: red;
+		}
+		.blue{
+			background-color: blue;
+		}
+		.yellow{
+			background-color: yellow;
+		}
+		.green{
+			background-color: green;
+		}
+	</style>
+</head>
+<body>
+<div class="outer">
+	<div class="inner red"></div>
+	<div class="inner blue"></div>
+	<div class="inner yellow"></div>
+	<div class="inner green"></div>
+</div>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script type="text/javascript">
+	var startX;
+	var $outer=$('.outer');
+	$('.outer').on("touchstart",function(evt){
+		evt.preventDefault();
+		var touchPoint=evt.originalEvent.touches[0];
+		startX=touchPoint.pageX;
+	});
+	$('.outer').on("touchend",function(evt){
+		var touchPoint=evt.originalEvent.changedTouches[0];
+		var x=touchPoint.pageX;
+		if(x>startX){
+			//向右滑
+			var $last=$('.outer div:last');
+			var $inner=$last.clone();
+			$outer.prepend($inner);
+			$last.animate({left:'200px'},500,function(){
+				$last.remove();
+			});
+		}
+	});
+</script>
+</body>
+</html>
