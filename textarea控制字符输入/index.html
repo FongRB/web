@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		.content{
+			width: 600px;
+			height: 500px;
+		}
+		.number{
+			color: blue;
+		}
+		.forbidden{
+			color: red;
+		}
+	</style>
+</head>
+<body>
+<textarea class="content"></textarea>
+<p>您还能输入<span class="number">20</span>个字符</p>
+<button class="submit">提交</button>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<script type='text/javascript' src='http://img.tnc.com.cn/static/zepto/1.1.6/zepto.min.js' charset='utf-8'></script>
+<script type="text/javascript">
+	$('.content').on('input propertychange',function(){
+		var count=$('.content').val().length;
+		var result=20-count;
+		$('.number').html(result);
+		if(result>=0){
+			$('.number').removeClass('forbidden');
+			$('.submit').removeAttr('disabled');
+		}else{
+			$('.number').addClass('forbidden');
+			$('.submit').attr('disabled',true);
+		}
+	})
+</script>
+</body>
+</html>
